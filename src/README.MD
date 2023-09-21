@@ -157,3 +157,5 @@ You can click send data and watch the data streaming to your firehose, once you 
 then you can check the s3 bucket to ensure that the data has arrived
 
 ![](../images/dummydatacfn12.png)
+
+Now we are getting to the fun part.
