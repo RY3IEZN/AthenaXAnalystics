@@ -8,7 +8,7 @@ In this project, we will setup simple analytic application, it takes a the data 
 
 Our Data science and data analytic friend will help us translate 😁
 
-Here are the steps
+Here is what we are going to do
 
 1. Create our Data Generator with cloudformation
 1. Send the Data to Kinesis Firehose
@@ -18,3 +18,26 @@ Here are the steps
 1. Save the structured data into a bucket
 1. Use Athena to Parse,Explore the data
 1. Set up QuickSight to visualise the data
+
+# 1. Create S3 Bucket.
+
+We have to create S3 Bucket to store our refernce and raw data, sign in and search for S3 bucket and lets get started
+
+Name your bucket and select your region, for this demonstration ill leave evrything and i mean everything in eu-west-2(london), as for the onwership leave it as disabled as we dont access from the outside world.
+
+![](../images/s3bucket1.png)
+
+Leave the bucket versioning as disabled, leave the Server side encryption to be manage by S3, and as always dont forget to tag your resources
+
+![](../images/s3bucket2.png)
+
+leave the advance settings as default for now and click create
+
+![](../images/s3bucket3.png)
+
+we should have succesfully created our bucket
+
+![](../images/s3bucket4.png)
+
+Now that we have our bucket, we need to upload our data, we will use a particular folder structure i.e
+`S3//:<bucket-name/data/refernece_data/FileName.json>`
