@@ -159,3 +159,41 @@ then you can check the s3 bucket to ensure that the data has arrived
 ![](../images/dummydatacfn12.png)
 
 Now we are getting to the fun part.
+
+# 4. Create the Crawlers
+
+Crawlers not bugs, well the will go and fetch the data from te buckets and organises them, sorts them and arranges them in the catalog, making it easier for the resources to access and analyise the data... So go to the console and search for the Aws Glue studio
+
+![](../images/glue1.png)
+
+Select "Crawlers" on the panel on the left and create a new Crawler
+
+![](../images/crawler1.png)
+
+In the next few steps we are going to configure the crawlers, set the destination create the gluedb. Set a name for the crawler and take note of the crawler name, it will be needed in the future! amd dont forget to tag it
+
+![](../images/crawler2.png)
+
+For the data source, we have not yet mapped it to the glue catalog, so click not yet and then click add data source, a modal will popup
+
+![](../images/crawler3.png)
+
+Fill in the modal with your S3 bucket URL,leave the network as blank, set the location to `inside thie account` and set the s3 location to end with the data prefix i.e `S3//:<bucket-name/data/`, set the crawlers to also crawl into the subfolders, then select add an s3 data source
+
+![](../images/crawler4.png)
+
+In the next side, in the security setting, click create new IAM role, its best this way, so that it will create what it needs, then click next
+
+![](../images/crawler5.png)
+
+before we procced we need to create a database inside the glue catalog, Take note of the name as we will need it in the future. dont forget as we will need it to update notebook
+
+![](../images/crawler5b.png)
+
+with that done, we can continue working on creating the crawlers, set the output settings and set the output to the db we just created leave the rest of the options default, the crawler schedule will be called only On-Demand
+
+![](../images/crawler6.png)
+
+Finally we can review and create the crawler.
+
+![](../images/crawler7.png)
