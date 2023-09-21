@@ -40,4 +40,41 @@ we should have succesfully created our bucket
 ![](../images/s3bucket4.png)
 
 Now that we have our bucket, we need to upload our data, we will use a particular folder structure i.e
+
 `S3//:<bucket-name/data/refernece_data/FileName.json>`
+
+Enter your bucket and click create a folder,
+
+![](../images/s3bucket5.png)
+
+Set the name to data, leave the rest as default and then click create
+
+![](../images/s3bucket6.png)
+
+once its done, enter the data directory
+
+![](../images/s3bucket7.png)
+
+Create another folder called reference_data
+
+![](../images/s3bucket8.png)
+
+click create and then enter the directory
+
+![](../images/s3bucket9.png)
+
+click upload and select the tracklist.json from your system and upload it
+
+![](../images/s3bucket10.png)
+
+leave the rest as default and click upload
+
+![](../images/s3bucket11.png)
+
+then we should have our reference data inside
+
+![](../images/s3bucket12.png)
+
+Good, now we can create kinesis firehose
+
+# 2. Create Kinesis Firehose
