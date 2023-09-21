@@ -197,3 +197,33 @@ with that done, we can continue working on creating the crawlers, set the output
 Finally we can review and create the crawler.
 
 ![](../images/crawler7.png)
+
+# 5. Create the glue studio and transform the data
+
+Now for the fun part
+
+In the panel on the left side inside the glue studio console, click notebook and then select Jupyter notebook,For the option we will use an exisiting notebook, select upload exisiting book and select the `./analytics-workshop-glueis-notebook.ipynb` and then select create
+
+![](../images/glue2.png)
+
+on the next page create the name of the notebook and assign the iam role , leave the kernel as Spark and then start notebook.
+
+![](../images/glue3.png)
+
+then wait for the notebook to load
+
+![](../images/glue4.png)
+
+Once its done loading the notebook should look like this, you can click play and go through the interactive book, Also at this point here is where you will update the name of the db, the crawlers, the bucket name before you procced, hopefully you can remember them all
+
+![](../images/glue5a.png)
+
+![](../images/glue5b.png)
+
+![](../images/glue5c.png)
+
+![](../images/glue5d.png)
+
+finally, go back to s3, you can validate it and see the process data folder
+
+![](../images/glue6.png)
