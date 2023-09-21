@@ -227,3 +227,4 @@ Once its done loading the notebook should look like this, you can click play and
 finally, go back to s3, you can validate it and see the process data folder
 
 ![](../images/glue6.png)
+.
