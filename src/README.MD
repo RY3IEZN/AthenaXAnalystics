@@ -19,7 +19,6 @@ Here is what we are going to do
 1. Use AWS Glue studio and transform the data
 1. Save the structured data into a bucket
 1. Use Athena to Parse,Explore the data
-1. Set up QuickSight to visualise the data
 
 # 1. Create S3 Bucket.
 
@@ -227,4 +226,68 @@ Once its done loading the notebook should look like this, you can click play and
 finally, go back to s3, you can validate it and see the process data folder
 
 ![](../images/glue6.png)
-.
+
+Now we can use Amazon Athena to explore the data and quicksight to visualise the data
+
+# 6.Create Athena
+
+Open te Search bar in your aws console and search for athena and select query editor on the left.
+
+![](../images/athena1.png)
+
+In query editor in the middle on the panel on the left make sure the analyticdb from the aws data catalog is selected, once done you can now running your querys like in an sql query editor. Make sure your syntax is correct, because you will still be charged for running the editor even if the query fails!
+
+For this first query we are going to run it on our data that was streamed into firehose.
+
+```sql
+SELECT activity_type,
+         count(activity_type)
+FROM raw
+GROUP BY  activity_type
+ORDER BY  activity_type
+```
+
+look like this
+
+![](../images/athena2.png)
+
+When we run it. you should see the data sorted and grouped according to the activity actions
+
+![](../images/athena3.png)
+
+For the second query we are going to run it on our data that we uploaded into the bucket and was transformed by glue.
+
+```sql
+SELECT artist_name,
+       count(artist_name) AS count
+FROM processed_data
+GROUP BY artist_name
+ORDER BY count desc
+```
+
+look like this
+
+![](../images/athena4.png)
+
+When we run it. you should see the data sorted and grouped according to the artist names
+
+![](../images/athena5.png)
+
+for the 3rd and final query we are going to run it on our data that we uploaded into the bucket and was transformed by glue.
+
+```sql
+SELECT device_id,
+       track_name,
+       count(track_name) AS count
+FROM processed_data
+GROUP BY device_id, track_name
+ORDER BY count desc
+```
+
+looks like this
+
+![](../images/athena6.png)
+
+When we run it. you should see the data sorted and grouped according to the songnames
+
+![](../images/athena7.png)
